@@ -1,15 +1,14 @@
-﻿using System;
+﻿using Shop.Interfaces;
+using System;
 using System.Globalization;
 
 namespace Shop
 {
-    public class Product : IComparable<Product>
+    public class Product : IComparable<Product>,IProduct
     {
+        //public delegate void PrintIncorrect(string path, string wrongLine, int paramCounter);
 
-        public delegate void PrintIncorrect(string path, string wrongLine, int paramCounter);
-
-
-        public event PrintIncorrect OnWrongInput;
+        //public event PrintIncorrect OnWrongInput;
 
         private string name;
 
@@ -79,25 +78,25 @@ namespace Shop
             bool result = double.TryParse(data[1], out weight);
             if (!result)
             {
-                OnWrongInput?.Invoke(@"D:\Users\vital\source\repos\HomeTask2\log.txt", line, 1);
+                //OnWrongInput?.Invoke(@"D:\Users\vital\source\repos\HomeTask2\log.txt", line, 1);
                 return false;
             }
             result = double.TryParse(data[2], out price);
             if (!result)
             {
-                OnWrongInput?.Invoke(@"D:\Users\vital\source\repos\HomeTask2\log.txt", line, 2);
+                //OnWrongInput?.Invoke(@"D:\Users\vital\source\repos\HomeTask2\log.txt", line, 2);
                 return false;
             }
             result = int.TryParse(data[3], out int expirationDate);
             if (!result)
             {
-                OnWrongInput?.Invoke(@"D:\Users\vital\source\repos\HomeTask2\log.txt", line, 3);
+               //OnWrongInput?.Invoke(@"D:\Users\vital\source\repos\HomeTask2\log.txt", line, 3);
                 return false;
             }
             result = DateTime.TryParseExact(data[4].Substring(0, 10), "dd.MM.yyyy", new CultureInfo(3), DateTimeStyles.None, out dateOfManufacture);
             if (!result)
             {
-                OnWrongInput?.Invoke(@"D:\Users\vital\source\repos\HomeTask2\log.txt", line, 4);
+                //OnWrongInput?.Invoke(@"D:\Users\vital\source\repos\HomeTask2\log.txt", line, 4);
                 return false;
             }
             ExpirationDate = expirationDate;

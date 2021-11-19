@@ -19,7 +19,7 @@ namespace Shop
     }
     public class Meat : Product
     {
-        public new event PrintIncorrect OnWrongInput;
+        //public new event PrintIncorrect OnWrongInput;
         public Category Category { get; set; }
 
         public Kind Kind { get; set; }
@@ -59,25 +59,25 @@ namespace Shop
             bool result = double.TryParse(data[1], out weight);
             if (!result)
             {
-                OnWrongInput?.Invoke(@"D:\Users\vital\source\repos\HomeTask2\log.txt", line, 1);
+                //OnWrongInput?.Invoke(@"D:\Users\vital\source\repos\HomeTask2\log.txt", line, 1);
                 return false;
             }
             result = double.TryParse(data[2], out price);
             if (!result)
             {
-                OnWrongInput?.Invoke(@"D:\Users\vital\source\repos\HomeTask2\log.txt", line, 2);
+                //OnWrongInput?.Invoke(@"D:\Users\vital\source\repos\HomeTask2\log.txt", line, 2);
                 return false;
             }
             result = int.TryParse(data[3], out int expirationDate);
             if (!result)
             {
-                OnWrongInput?.Invoke(@"D:\Users\vital\source\repos\HomeTask2\log.txt", line, 3);
+                //OnWrongInput?.Invoke(@"D:\Users\vital\source\repos\HomeTask2\log.txt", line, 3);
                 return false;
             }
             result = DateTime.TryParseExact(data[4].Substring(0, 10), "dd.MM.yyyy", new CultureInfo(3), DateTimeStyles.None, out DateTime dateOfManifecture);
             if (!result)
             {
-                OnWrongInput?.Invoke(@"D:\Users\vital\source\repos\HomeTask2\log.txt", line, 4);
+                //OnWrongInput?.Invoke(@"D:\Users\vital\source\repos\HomeTask2\log.txt", line, 4);
                 return false;
             }
             switch (data[5])
@@ -92,7 +92,7 @@ namespace Shop
                     category = Category.HighSort;
                     break;
                 default:
-                    OnWrongInput?.Invoke(@"D:\Users\vital\source\repos\HomeTask2\log.txt", line, 5);
+                    //OnWrongInput?.Invoke(@"D:\Users\vital\source\repos\HomeTask2\log.txt", line, 5);
                     return false;
             }
 
@@ -111,7 +111,7 @@ namespace Shop
                     kind = Kind.Chicken;
                     break;
                 default:
-                    OnWrongInput?.Invoke(@"D:\Users\vital\source\repos\HomeTask2\log.txt", line, 6);
+                    //OnWrongInput?.Invoke(@"D:\Users\vital\source\repos\HomeTask2\log.txt", line, 6);
                     return false;
             }
             this.Name = name;

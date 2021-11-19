@@ -1,22 +1,23 @@
-﻿using System;
+﻿using Shop.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
 namespace Shop
 {
-    public delegate void PrintMessageHandler(string message);
-    public delegate void PrintIncorrect(string path, string wrongLine, int paramCounter);
-    public delegate void ModifyInput(ShopStorage storage, string wrongLine);
-    public delegate void RemoveSpoiledProductsAndWriteInLog(List<Product> products, string path);
+    //public delegate void PrintMessageHandler(string message);
+    //public delegate void PrintIncorrect(string path, string wrongLine, int paramCounter);
+    //public delegate void ModifyInput(ShopStorage storage, string wrongLine);
+    //public delegate void RemoveSpoiledProductsAndWriteInLog(List<Product> products, string path);
 
-    public class ShopStorage
+    public class ShopStorage:IShopStorage
     {
-        public event PrintMessageHandler OnAdd;
-        public event PrintIncorrect OnWrongInput;
-        public event ModifyInput OnCorrectWrongInputForProduct;
-        public event ModifyInput OnCorrectWrongInputForMeat;
-        public event ModifyInput OnCorrectWrongInputForDairy;
-        public event RemoveSpoiledProductsAndWriteInLog OnRemoveSpoiledProducts;
+        //public event PrintMessageHandler OnAdd;
+        //public event PrintIncorrect OnWrongInput;
+        //public event ModifyInput OnCorrectWrongInputForProduct;
+        //public event ModifyInput OnCorrectWrongInputForMeat;
+        //public event ModifyInput OnCorrectWrongInputForDairy;
+        //public event RemoveSpoiledProductsAndWriteInLog OnRemoveSpoiledProducts;
 
         public List<Product> Products { get; private set; }
 
@@ -47,16 +48,6 @@ namespace Shop
             Products = new List<Product>();
         }
 
-        public string PrintMenu()
-        {
-            return ("\n[1]Сreate an array of products\t[2] Add product" +
-                "\n[3]Delete last product\t\t[4] Print Check\n" +
-                "[5]Change price for all product\t[6] Find all meat products\n" +
-                "[7]Delete spoiled Dairy Product\t[8]Read data from a file\n" +
-                "[0] Exit\nSelect an action:");
-
-        }
-
         public override string ToString()
         {
             string res = "";
@@ -66,46 +57,6 @@ namespace Shop
             }
             return res;
         }
-
-        public void DeleteSpoiledDairyProducts(string filePath)
-        {
-
-            StreamWriter writer = new StreamWriter(filePath);
-
-
-            for (int i = 0; i < Products.Count; i++)
-            {
-                if (Products[i] is DairyProduct)
-                {
-                    if (Products[i].IsSpoiledProduct())
-                    {
-                        writer.WriteLine(Products[i]);
-                        Products.RemoveAt(i);
-                    }
-                }
-            }
-
-            writer.Close();
-        }
-
-        public void RemoveProductsByName(string name)
-        {
-            if (String.IsNullOrEmpty(name))
-                throw new ArgumentException();
-
-            Products.RemoveAll(i => i.Name == name);
-
-        }
-
-        public List<Product> FindAllByName(string name)
-        {
-            if (String.IsNullOrEmpty(name))
-                throw new ArgumentException();
-
-            return Products.FindAll(i => i.Name == name);
-        }
-
-
 
         public void ReadDataFromFile(string filePath)
         {
@@ -136,7 +87,7 @@ namespace Shop
                         AddDairyProduct(item);
                         break;
                     default:
-                        OnWrongInput?.Invoke(@"D:\Users\vital\source\repos\HomeTask2\log.txt", item, 0);
+                        //OnWrongInput?.Invoke(@"D:\Users\vital\source\repos\HomeTask2\log.txt", item, 0);
                         break;
                 }
 
@@ -144,7 +95,7 @@ namespace Shop
 
         }
 
-        public void AddProduct(string data)
+        public bool AddProduct(string data)
         {
             data = data.Substring(8);
             Product product = new Product();
@@ -152,15 +103,17 @@ namespace Shop
             if (product.TryParse(data))
             {
                 Products.Add(product);
-                OnAdd?.Invoke("Product was added");
+                //OnAdd?.Invoke("Product was added");
+                return true;
             }
             else
             {
-                OnCorrectWrongInputForProduct?.Invoke(this, data);
+                //OnCorrectWrongInputForProduct?.Invoke(this, data);
+                return false;
             }
         }
 
-        public void AddMeat(string data)
+        public bool AddMeat(string data)
         {
             data = data.Substring(5);
             Meat product = new Meat();
@@ -168,15 +121,17 @@ namespace Shop
             if (product.TryParse(data))
             {
                 Products.Add(product);
-                OnAdd?.Invoke("Meat was added");
+                //OnAdd?.Invoke("Meat was added");
+                return true;
             }
             else
             {
-                OnCorrectWrongInputForMeat?.Invoke(this, data);
+                //OnCorrectWrongInputForMeat?.Invoke(this, data);
+                return false;
             }
         }
 
-        public void AddDairyProduct(string data)
+        public bool AddDairyProduct(string data)
         {
             data = data.Substring(6);
             DairyProduct product = new DairyProduct();
@@ -184,131 +139,54 @@ namespace Shop
             if (product.TryParse(data))
             {
                 Products.Add(product);
-                OnAdd?.Invoke("Dairy product was added");
+                //OnAdd?.Invoke("Dairy product was added");
+                return true;
             }
             else
             {
-                OnCorrectWrongInputForDairy?.Invoke(this, data);
+                //OnCorrectWrongInputForDairy?.Invoke(this, data);
+                return false;
             }
         }
 
-        public void AddMeat(string name, double weight, double price, int expirationDate, DateTime dateOfManufacture, Category category, Kind kind)
+        public bool AddProduct(Product product)
         {
-            Products.Add(new Meat(name, weight, price, expirationDate, dateOfManufacture, category, kind));
-            OnAdd?.Invoke("Meat was added");
-        }
-
-        public void AddDairy(string name, double price, double weight, int expirationdDate, DateTime date)
-        {
-            Products.Add(new DairyProduct(name, weight, price, expirationdDate, date));
-            OnAdd?.Invoke("Dairy was added");
-        }
-
-        public void AddProduct(string name, double price, double weight, int expirationdDate, DateTime date)
-        {
-            Products.Add(new Product(name, weight, price, expirationdDate, date));
-            OnAdd?.Invoke("Product was added");
-        }
-
-        public void DeleteLastProduct()
-        {
-            if (Products == null)
+            if (product!=null||!product.IsSpoiledProduct())
             {
-                Console.WriteLine("Empty array!");
-                return;
+                Products.Add(product);
+                return true;
             }
-            Products.RemoveAt(Products.Count - 1);
-            Console.WriteLine("Delete completed!");
-        }
-
-        public string PrintCheck()
-        {
-            OnRemoveSpoiledProducts(Products, @"D:\Users\vital\source\repos\HomeTask2\log.txt");
-
-            return "\nCheck\n" + ToString();
-        }
-
-        public List<Meat> FindAllMeatProducts()
-        {
-            if (Products == null)
-                return null;
-
-            List<Meat> meats = new List<Meat>();
-
-            foreach (var product in Products)
+            else
             {
-                if (product is Meat)
-                {
-                    meats.Add((Meat)product);
-                }
-
+                return false;
             }
-
-            return meats;
         }
 
-        public void ChangePrice(double percent)
+        public bool AddMeat(Meat meat)
         {
-            foreach (var item in Products)
+            if (meat != null || !meat.IsSpoiledProduct())
             {
-                item.ChangePrice(percent);
+                Products.Add(meat);
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
-        public List<Product> GetJointProducts(ShopStorage other)
+        public bool AddDairyProduct(DairyProduct dairyProduct)
         {
-            if (other == null)
-                throw new ArgumentNullException();
-
-            var jointProducts = new List<Product>();
-
-            foreach (var product in this.Products)
+            if (dairyProduct != null || !dairyProduct.IsSpoiledProduct())
             {
-                if (other.Products.Contains(product))
-                    jointProducts.Add(product);
+                Products.Add(dairyProduct);
+                return true;
             }
-
-            return jointProducts;
+            else
+            {
+                return false;
+            }
         }
-
-        public List<Product> GetProductsNotContainsOther(ShopStorage other)
-        {
-            if (other == null)
-                throw new ArgumentNullException();
-
-            var products = new List<Product>();
-
-            foreach (var product in this.Products)
-            {
-                if (!other.Products.Contains(product))
-                    products.Add(product);
-            }
-
-            return products;
-        }
-
-        public List<Product> GetDifferentProducts(ShopStorage other)
-        {
-            if (other == null)
-                throw new ArgumentNullException();
-
-            var differentProducts = new List<Product>();
-
-            foreach (var product in this.Products)
-            {
-                if (!other.Products.Contains(product))
-                    differentProducts.Add(product);
-            }
-
-            foreach (var product in other.Products)
-            {
-                if (!this.Products.Contains(product))
-                    differentProducts.Add(product);
-            }
-
-            return differentProducts;
-        }
-
 
     }
 }
