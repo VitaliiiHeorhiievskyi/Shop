@@ -60,135 +60,135 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\Administrator.cs" />
-    <Compile Include="Class\Bank.cs" />
-    <Compile Include="Basket.cs">
+    <Compile Include="Classes\Administrator.cs" />
+    <Compile Include="Classes\Bank.cs" />
+    <Compile Include="Forms\Basket.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Basket.Designer.cs">
+    <Compile Include="Forms\Basket.Designer.cs">
       <DependentUpon>Basket.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class\ClientBasket.cs" />
-    <Compile Include="CheckIn.cs">
+    <Compile Include="Classes\ClientBasket.cs" />
+    <Compile Include="Forms\CheckIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CheckIn.Designer.cs">
+    <Compile Include="Forms\CheckIn.Designer.cs">
       <DependentUpon>CheckIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class\Client.cs" />
-    <Compile Include="Class\CreditCard.cs" />
-    <Compile Include="CreditCardForm.cs">
+    <Compile Include="Classes\Client.cs" />
+    <Compile Include="Classes\CreditCard.cs" />
+    <Compile Include="Forms\CreditCardForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreditCardForm.Designer.cs">
+    <Compile Include="Forms\CreditCardForm.Designer.cs">
       <DependentUpon>CreditCardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class\DairyProduct.cs" />
-    <Compile Include="Class\FileWorker.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Classes\DairyProduct.cs" />
+    <Compile Include="Classes\FileWorker.cs" />
+    <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAddProduct.cs">
+    <Compile Include="Forms\FormAddProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAddProduct.Designer.cs">
+    <Compile Include="Forms\FormAddProduct.Designer.cs">
       <DependentUpon>FormAddProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormEditProduct.cs">
+    <Compile Include="Forms\FormEditProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormEditProduct.Designer.cs">
+    <Compile Include="Forms\FormEditProduct.Designer.cs">
       <DependentUpon>FormEditProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormForAdmin.cs">
+    <Compile Include="Forms\FormForAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormForAdmin.Designer.cs">
+    <Compile Include="Forms\FormForAdmin.Designer.cs">
       <DependentUpon>FormForAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormForEditOrder.cs">
+    <Compile Include="Forms\FormForEditOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormForEditOrder.Designer.cs">
+    <Compile Include="Forms\FormForEditOrder.Designer.cs">
       <DependentUpon>FormForEditOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormForModerator.cs">
+    <Compile Include="Forms\FormForModerator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormForModerator.Designer.cs">
+    <Compile Include="Forms\FormForModerator.Designer.cs">
       <DependentUpon>FormForModerator.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormOrders.cs">
+    <Compile Include="Forms\FormOrders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormOrders.Designer.cs">
+    <Compile Include="Forms\FormOrders.Designer.cs">
       <DependentUpon>FormOrders.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormProducts.cs">
+    <Compile Include="Forms\FormProducts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormProducts.Designer.cs">
+    <Compile Include="Forms\FormProducts.Designer.cs">
       <DependentUpon>FormProducts.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class\Meat.cs" />
-    <Compile Include="Class\Moderator.cs" />
-    <Compile Include="Class\Order.cs" />
-    <Compile Include="OrderForm.cs">
+    <Compile Include="Classes\Meat.cs" />
+    <Compile Include="Classes\Moderator.cs" />
+    <Compile Include="Classes\Order.cs" />
+    <Compile Include="Forms\OrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OrderForm.Designer.cs">
+    <Compile Include="Forms\OrderForm.Designer.cs">
       <DependentUpon>OrderForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class\Product.cs" />
-    <Compile Include="Class\Program.cs" />
+    <Compile Include="Classes\Product.cs" />
+    <Compile Include="Classes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Class\Shop.cs" />
-    <Compile Include="ShopForm.cs">
+    <Compile Include="Classes\Shop.cs" />
+    <Compile Include="Forms\ShopForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ShopForm.Designer.cs">
+    <Compile Include="Forms\ShopForm.Designer.cs">
       <DependentUpon>ShopForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class\ShopStorage.cs" />
-    <Compile Include="Class\User.cs" />
-    <Compile Include="Class\VipClient.cs" />
-    <EmbeddedResource Include="Basket.resx">
+    <Compile Include="Classes\ShopStorage.cs" />
+    <Compile Include="Classes\User.cs" />
+    <Compile Include="Classes\VipClient.cs" />
+    <EmbeddedResource Include="Forms\Basket.resx">
       <DependentUpon>Basket.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CheckIn.resx">
+    <EmbeddedResource Include="Forms\CheckIn.resx">
       <DependentUpon>CheckIn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreditCardForm.resx">
+    <EmbeddedResource Include="Forms\CreditCardForm.resx">
       <DependentUpon>CreditCardForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAddProduct.resx">
+    <EmbeddedResource Include="Forms\FormAddProduct.resx">
       <DependentUpon>FormAddProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormEditProduct.resx">
+    <EmbeddedResource Include="Forms\FormEditProduct.resx">
       <DependentUpon>FormEditProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormForAdmin.resx">
+    <EmbeddedResource Include="Forms\FormForAdmin.resx">
       <DependentUpon>FormForAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormForEditOrder.resx">
+    <EmbeddedResource Include="Forms\FormForEditOrder.resx">
       <DependentUpon>FormForEditOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormForModerator.resx">
+    <EmbeddedResource Include="Forms\FormForModerator.resx">
       <DependentUpon>FormForModerator.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormOrders.resx">
+    <EmbeddedResource Include="Forms\FormOrders.resx">
       <DependentUpon>FormOrders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormProducts.resx">
+    <EmbeddedResource Include="Forms\FormProducts.resx">
       <DependentUpon>FormProducts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OrderForm.resx">
+    <EmbeddedResource Include="Forms\OrderForm.resx">
       <DependentUpon>OrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -200,7 +200,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ShopForm.resx">
+    <EmbeddedResource Include="Forms\ShopForm.resx">
       <DependentUpon>ShopForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -218,12 +218,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Cards.txt" />
-    <Content Include="Input.Designer.txt" />
-    <Content Include="Input.txt">
+    <Content Include="FilesData\Cards.txt" />
+    <Content Include="FilesData\Input.Designer.txt" />
+    <Content Include="FilesData\Input.txt">
       <SubType>Form</SubType>
     </Content>
-    <Content Include="users.txt" />
+    <Content Include="FilesData\users.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
