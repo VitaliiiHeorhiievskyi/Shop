@@ -28,11 +28,11 @@ namespace Shop
 
             form1 = this;
 
-            shop.Users = FileWorker.ReadDataForUsers(@"D:\Users\vital\source\repos\Shop\users.txt");
+            shop.Users = FileWorker.ReadDataForUsers(@"D:\Users\vital\source\repos\Shop\FilesData\users.txt");
 
-            shop.Storage = FileWorker.ReadDataForStorage(@"D:\Users\vital\source\repos\Shop\Input.txt");
+            shop.Storage = FileWorker.ReadDataForStorage(@"D:\Users\vital\source\repos\Shop\FilesData\Input.txt");
 
-            bank = new Bank(FileWorker.ReadDataForCreditCards(@"D:\Users\vital\source\repos\Shop\Cards.txt"));
+            bank = new Bank(FileWorker.ReadDataForCreditCards(@"D:\Users\vital\source\repos\Shop\FilesData\Cards.txt"));
         }
 
         private void button1_Click(object sender, EventArgs e)

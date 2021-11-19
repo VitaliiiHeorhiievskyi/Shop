@@ -30,7 +30,7 @@ namespace Shop
 
                 System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShopForm));
 
-                Orders.Image= Image.FromFile(@"D:\Users\vital\source\repos\Shop\VipClient.jpg");
+                Orders.Image= Image.FromFile(@"D:\Users\vital\source\repos\Shop\Images\VipClient.jpg");
             }
             else Discount.Text = "";
         }
