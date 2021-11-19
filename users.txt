@@ -1,7 +1,10 @@
-VipClient 1 1 Vitalik 20
+VipClient 1 1 Vitalik 20 16.11.2021 19:01:14 New Lviv 896 3
+Product Sweet 800 500 30 10.11.2021
+Product Sweet 800 500 30 10.11.2021
+Product Lemon 12 120 12 10.11.2021
 Admin 2 2 Vitalik
 Moderator 3 3 Vitalik
-Client 5 5 Vlad 15.11.2021 16:05:21 InProcess Boryslav 1344 7
+VipClient 5 5 Vlad 15 15.11.2021 16:05:21 InProcess Boryslav 1344 7
 Product Apple 1000 20 31 14.11.2021
 Product Sweet 800 500 30 10.11.2021
 Product Lemon 12 120 12 10.11.2021

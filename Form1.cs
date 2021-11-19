@@ -24,7 +24,7 @@ namespace Shop
         {
             InitializeComponent();
 
-            shop = new Shop();
+            shop = Shop.getInstance();
 
             form1 = this;
 

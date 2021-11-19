@@ -8,6 +8,22 @@ namespace Shop
 {
     public class Shop
     {
+        private static Shop instance;
+
+        private Shop()
+        {
+            Users = new List<User>();
+
+            Storage = new ShopStorage();
+        }
+
+        public static Shop getInstance()
+        {
+            if (instance == null)
+                instance = new Shop();
+            return instance;
+        }
+
         public List<User> Users { get; set; }
 
         public ShopStorage Storage { get; set; }
@@ -25,11 +41,5 @@ namespace Shop
             Users.Add(user);
         }
 
-        public Shop()
-        {
-            Users = new List<User>();
-
-            Storage = new ShopStorage();
-        }
     }
 }
