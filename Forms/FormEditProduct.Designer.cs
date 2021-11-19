@@ -29,6 +29,7 @@ namespace Shop
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEditProduct));
             this.button2 = new System.Windows.Forms.Button();
             this.EditProduct = new System.Windows.Forms.Button();
             this.KindG = new System.Windows.Forms.GroupBox();
@@ -362,6 +363,7 @@ namespace Shop
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormEditProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormEditProduct";
